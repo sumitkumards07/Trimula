@@ -45,11 +45,11 @@
             <div class="booking-search glass">
                 <div class="search-item">
                     <label><i class="far fa-calendar-alt"></i> Check In</label>
-                    <input type="date">
+                    <input type="date" id="search-checkin">
                 </div>
                 <div class="search-item">
                     <label><i class="far fa-calendar-alt"></i> Check Out</label>
-                    <input type="date">
+                    <input type="date" id="search-checkout">
                 </div>
                 <div class="search-item">
                     <label><i class="fas fa-user-friends"></i> Guests</label>
@@ -259,6 +259,36 @@
         </div>
     </section>
 
+    <!-- Booking Enquiry Modal -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content glass">
+            <span class="close-modal">&times;</span>
+            <h2>Booking Enquiry</h2>
+            <form id="enquiry-form">
+                <input type="hidden" id="modal-room-type">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="guest-name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Check In</label>
+                        <input type="date" id="modal-checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Check Out</label>
+                        <input type="date" id="modal-checkout" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Number of Guests</label>
+                    <input type="number" id="modal-guests" min="1" max="10" value="1" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Send Enquiry on WhatsApp <i class="fab fa-whatsapp"></i></button>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container grid footer-grid">
@@ -334,6 +364,7 @@
             let currentSlide = 0;
 
             const updateSlider = (index) => {
+                if (!track) return;
                 track.style.transform = `translateX(-${index * 100}%)`;
                 dots.forEach(dot => dot.classList.remove('active'));
                 dots[index].classList.add('active');
@@ -351,6 +382,65 @@
                 currentSlide = (currentSlide + 1) % dots.length;
                 updateSlider(currentSlide);
             }, 5000);
+
+            // Modal & WhatsApp Logic
+            const modal = document.getElementById('booking-modal');
+            const closeModal = document.querySelector('.close-modal');
+            const enquiryForm = document.getElementById('enquiry-form');
+            const bookButtons = document.querySelectorAll('.btn-outline, .search-btn');
+
+            bookButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Pre-fill from search bar if available
+                    document.getElementById('modal-checkin').value = document.getElementById('search-checkin').value;
+                    document.getElementById('modal-checkout').value = document.getElementById('search-checkout').value;
+                    document.getElementById('modal-guests').value = document.getElementById('guest-count').value;
+
+                    // Get room type from card if applicable
+                    const card = btn.closest('.room-card');
+                    if (card) {
+                        const roomName = card.querySelector('h3').innerText;
+                        document.getElementById('modal-room-type').value = roomName;
+                    } else {
+                        document.getElementById('modal-room-type').value = "General Enquiry";
+                    }
+
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            enquiryForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('guest-name').value;
+                const room = document.getElementById('modal-room-type').value;
+                const checkin = document.getElementById('modal-checkin').value;
+                const checkout = document.getElementById('modal-checkout').value;
+                const guests = document.getElementById('modal-guests').value;
+
+                const message = `Hello! I would like to book a stay at Panchajanyam Guest House.\n\n` +
+                                `- *Name:* ${name}\n` +
+                                `- *Room:* ${room}\n` +
+                                `- *Check-in:* ${checkin}\n` +
+                                `- *Check-out:* ${checkout}\n` +
+                                `- *Guests:* ${guests}`;
+
+                const whatsappUrl = `https://wa.me/919955631106?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+                modal.style.display = 'none';
+            });
         });
     </script>
 
