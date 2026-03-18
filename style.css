@@ -1596,3 +1596,34 @@ section {
 .float-btn-call i {
     color: #1a73e8;
 }
+
+/* Hero Call Button */
+.hero-btns {
+    margin-bottom: 30px;
+}
+
+.hero-call-btn {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 14px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-call-btn:hover {
+    background: var(--accent-color);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+@media (max-width: 768px) {
+    .hero-call-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
