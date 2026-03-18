@@ -898,3 +898,44 @@ section {
 .w-100 {
     width: 100%;
 }
+
+/* Testimonials Marquee Styles */
+.testimonials-marquee-container {
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 30px;
+    animation: marquee 30s linear infinite;
+    width: fit-content;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+.marquee-card {
+    min-width: 350px;
+    max-width: 400px;
+    background: #fdfbf7;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border: 1px solid #eee;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    .marquee-card {
+        min-width: 280px;
+    }
+}
