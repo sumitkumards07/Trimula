@@ -722,3 +722,40 @@ section {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/* Room Price & Badge Styles */
+.room-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.room-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-sm);
+    z-index: 10;
+}
+
+.room-card {
+    position: relative; /* Ensure badge is positioned relative to card */
+}
+
+.btn-outline i {
+    margin-left: 8px;
+    transition: var(--transition);
+}
+
+.btn-outline:hover i {
+    transform: translateX(4px);
+}
