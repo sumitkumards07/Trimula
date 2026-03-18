@@ -220,26 +220,40 @@
             <div class="section-title">
                 <h2>Meet Some Happy Customers</h2>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://i.pravatar.cc/60?u=1" alt="User">
-                        <div>
-                            <h4>Arya Stark</h4>
+            <div class="testimonials-slider-container">
+                <div class="testimonials-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/80?u=1" alt="Srinivas K.">
+                            <h4>Srinivas K.</h4>
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         </div>
+                        <p>"Exceptional service and very close to the temple. The rooms are well-maintained and perfect for family stays."</p>
                     </div>
-                    <p>"The atmosphere was so peaceful. The rooms were clean and the staff was so helpful. Highly Recommended."</p>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/80?u=2" alt="Meena Rao">
+                            <h4>Meena Rao</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                        <p>"The staff was very courteous. Having a 4-bed AC room made our group trip very comfortable and affordable."</p>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/80?u=3" alt="Ananth S.">
+                            <h4>Ananth S.</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                        <p>"Beautiful views of the hills. The 'Best Room' truly lived up to its name. Highly recommend for devotees."</p>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://i.pravatar.cc/60?u=2" alt="User">
-                        <div>
-                            <h4>Dean Stark</h4>
-                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        </div>
-                    </div>
-                    <p>"One of the best places I have stayed near Tirumala. Excellent hospitality and great food."</p>
+                <div class="slider-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
                 </div>
             </div>
         </div>
@@ -251,7 +265,7 @@
             <div class="footer-info">
                 <h3>Panchajanyam Guest House</h3>
                 <p><i class="fas fa-map-marker-alt"></i> 121 Panchajanyam Guest House, Tirumala, Tirupati</p>
-                <p><i class="fas fa-phone"></i> +91 (123) 456-7890</p>
+                <p><i class="fas fa-phone"></i> +91 9955631106</p>
                 <p><i class="fas fa-envelope"></i> help@panchajanyam.com</p>
             </div>
             <div class="footer-links">
@@ -313,6 +327,30 @@
                     guestInput.value = value + 1;
                 }
             });
+
+            // Testimonials Slider Logic
+            const track = document.querySelector('.testimonials-track');
+            const dots = document.querySelectorAll('.dot');
+            let currentSlide = 0;
+
+            const updateSlider = (index) => {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+            };
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider(currentSlide);
+                });
+            });
+
+            // Auto-play slider
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % dots.length;
+                updateSlider(currentSlide);
+            }, 5000);
         });
     </script>
 
