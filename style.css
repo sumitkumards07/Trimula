@@ -1585,3 +1585,14 @@ section {
         backdrop-filter: blur(14px) !important;
     }
 }
+
+/* Call button inverted (white bg, blue icon) */
+.float-btn-call {
+    background: #fff !important;
+    color: #1a73e8 !important;
+    border: 2px solid #1a73e8;
+}
+
+.float-btn-call i {
+    color: #1a73e8;
+}
