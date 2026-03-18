@@ -1627,3 +1627,9 @@ section {
         font-size: 1rem;
     }
 }
+
+/* Invert all phone icons horizontally */
+.fa-phone, .fa-phone-alt, .fa-phone-flip {
+    display: inline-block;
+    transform: scaleX(-1);
+}
