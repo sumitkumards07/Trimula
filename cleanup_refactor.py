@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap');
+import re
+
+css_file = '/Users/sumitkumar/Desktop/Hello/style.css'
+
+with open(css_file, 'r') as f:
+    orig_css = f.read()
+
+# Define the CLEAN version from scratch to ensure quality
+# (I will take the good parts from the existing CSS)
+
+clean_css = """@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ===== FOUNDATION & VARIABLES ===== */
 * {
@@ -310,3 +320,7 @@ section { padding: var(--section-padding); }
     display: inline-block;
     transform: scaleX(-1);
 }
+"""
+
+with open(css_file, 'w') as f:
+    f.write(clean_css)
