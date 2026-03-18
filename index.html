@@ -37,20 +37,43 @@
             <img src="./assets/hero.png" alt="Panchajanyam Guest House Hero">
         </div>
         <div class="hero-content container">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i> Tirumala's Most Trusted Guest House
+            </div>
             <span class="hero-subtitle">Welcome to</span>
-            <h1 class="hero-title">Panchajanyam Guest House</h1>
-            <p class="hero-description">Experience Spiritual Serenity & Nature's Embrace in Tirumala</p>
-            
+            <h1 class="hero-title">Panchajanyam<br>Guest House</h1>
+            <p class="hero-description">Experience Spiritual Serenity &amp; Nature's Embrace in Tirumala. Your Home Away from Home.</p>
+
+            <!-- Hero Stats -->
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Happy Guests</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Room Types</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support</span>
+                </div>
+            </div>
+
             <!-- Booking Search Bar -->
             <div class="booking-search glass">
                 <div class="search-item">
-                    <label><i class="far fa-calendar-alt"></i> Check In</label>
+                    <label><i class="far fa-calendar-check"></i> Check In</label>
                     <input type="date" id="search-checkin">
                 </div>
+                <div class="search-divider"></div>
                 <div class="search-item">
-                    <label><i class="far fa-calendar-alt"></i> Check Out</label>
+                    <label><i class="far fa-calendar-minus"></i> Check Out</label>
                     <input type="date" id="search-checkout">
                 </div>
+                <div class="search-divider"></div>
                 <div class="search-item">
                     <label><i class="fas fa-user-friends"></i> Guests</label>
                     <div class="guest-counter">
@@ -59,10 +82,22 @@
                         <button type="button" class="counter-btn plus">+</button>
                     </div>
                 </div>
-                <button class="btn btn-primary search-btn">Check Availability</button>
+                <button class="btn btn-primary search-btn">
+                    <i class="fas fa-search"></i> Check Availability
+                </button>
             </div>
         </div>
     </section>
+
+    <!-- Floating Call & WhatsApp Buttons -->
+    <a href="tel:+919955631106" class="float-call" aria-label="Call Us">
+        <span class="float-label">Call Us</span>
+        <span class="float-btn float-btn-call"><i class="fas fa-phone-alt"></i></span>
+    </a>
+    <a href="https://wa.me/919955631106" target="_blank" class="float-whatsapp" aria-label="WhatsApp">
+        <span class="float-btn float-btn-whatsapp"><i class="fab fa-whatsapp"></i></span>
+        <span class="float-label">WhatsApp</span>
+    </a>
 
     <!-- Our Rooms Section -->
     <section class="rooms" id="rooms">
