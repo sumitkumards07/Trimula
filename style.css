@@ -1367,3 +1367,147 @@ section {
     .search-divider { display: none; }
     .search-btn { justify-content: center; }
 }
+
+/* ===== MOBILE ENHANCEMENT PASS 2 ===== */
+
+/* Sticky navbar on mobile */
+@media (max-width: 992px) {
+    .header, .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: var(--primary-color) !important;
+        backdrop-filter: none;
+    }
+
+    body {
+        padding-top: 0;
+    }
+
+    .hero {
+        padding-top: 70px;
+    }
+
+    /* Nav container for mobile */
+    .nav, .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 20px;
+    }
+
+    .logo a, .logo {
+        font-size: 1.2rem !important;
+        color: var(--secondary-color) !important;
+    }
+}
+
+/* Mobile hero full bleed fix */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100svh;
+        justify-content: flex-end;
+        padding-bottom: 40px;
+    }
+
+    .hero-content {
+        text-align: center;
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .hero-badge {
+        font-size: 0.72rem;
+        padding: 5px 12px;
+        margin-bottom: 12px;
+    }
+
+    .hero-title {
+        font-size: 2rem !important;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .hero-description {
+        font-size: 0.9rem !important;
+        margin-bottom: 20px;
+        padding: 0 4px;
+    }
+
+    /* Stats compact on mobile */
+    .hero-stats {
+        gap: 12px;
+        margin: 16px 0 24px;
+    }
+
+    .stat-number { font-size: 1.4rem; }
+    .stat-label { font-size: 0.7rem; }
+
+    /* Search bar mobile */
+    .booking-search {
+        margin: 0 8px;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .search-item label {
+        font-size: 0.7rem;
+        margin-bottom: 4px;
+    }
+
+    /* Fix date input color on mobile */
+    .search-item input[type="date"] {
+        color: #fff;
+        font-size: 0.85rem;
+    }
+
+    /* Room cards mobile */
+    .room-info h3 { font-size: 1.2rem; }
+    .room-info p { font-size: 0.88rem; }
+
+    /* Section headings */
+    h2 { font-size: 1.7rem; }
+
+    /* About section stack nicely */
+    .about {
+        padding: 50px 0;
+    }
+
+    .about-row {
+        gap: 30px;
+        padding: 0 16px;
+    }
+
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-content p {
+        font-size: 0.95rem;
+    }
+
+    /* Marquee mobile speed */
+    .marquee-content {
+        animation-duration: 20s;
+    }
+
+    /* Footer mobile */
+    .footer-info h3 { font-size: 1.1rem; }
+    .footer-links h4 { margin-bottom: 12px; }
+    .footer-links ul li { margin-bottom: 8px; }
+
+    /* Modal mobile */
+    .modal-content h2 { font-size: 1.4rem; }
+    .modal-content { margin: 10% auto; }
+}
+
+/* Extra small phones */
+@media (max-width: 380px) {
+    .hero-title { font-size: 1.6rem !important; }
+    .hero-stats { gap: 8px; }
+    .stat-number { font-size: 1.2rem; }
+    .booking-search { padding: 12px; }
+    .hero-badge { display: none; }
+}
