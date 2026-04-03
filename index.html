@@ -49,16 +49,7 @@
 
             <!-- Booking Search Bar -->
             <div class="booking-search glass">
-                <div class="search-item">
-                    <label><i class="far fa-calendar-check"></i> Check In</label>
-                    <input type="date" id="search-checkin">
-                </div>
-                <div class="search-divider"></div>
-                <div class="search-item">
-                    <label><i class="far fa-calendar-minus"></i> Check Out</label>
-                    <input type="date" id="search-checkout">
-                </div>
-                <div class="search-divider"></div>
+
                 <div class="search-item">
                     <label><i class="fas fa-user-friends"></i> Guests</label>
                     <div class="guest-counter">
@@ -254,6 +245,8 @@
                         <input type="date" id="modal-checkout" required>
                     </div>
                 </div>
+
+
                 <div class="form-group">
                     <label>Number of Guests</label>
                     <input type="number" id="modal-guests" min="1" max="10" value="1" required>
@@ -344,8 +337,7 @@
                     e.preventDefault();
                     
                     // Pre-fill from search bar if available
-                    document.getElementById('modal-checkin').value = document.getElementById('search-checkin').value;
-                    document.getElementById('modal-checkout').value = document.getElementById('search-checkout').value;
+
                     document.getElementById('modal-guests').value = document.getElementById('guest-count').value;
 
                     // Get room type from card if applicable
