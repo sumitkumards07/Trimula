@@ -249,22 +249,16 @@ section { padding: var(--section-padding); }
     .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-color); padding: 25px; border-top: 1px solid rgba(255,255,255,0.1); }
     .nav-links.active { display: flex; }
     .mobile-menu-icon { display: block; }
-    .hero-title { font-size: 3rem; }
+    .hero-title { font-size: 3.6rem; }
     .about-row { flex-direction: column; }
 }
 
 @media (max-width: 768px) {
     :root { --section-padding: 60px 20px; }
     .hero { min-height: 100svh; padding-bottom: 50px; align-items: flex-end; }
-    .hero-title { font-size: 2.4rem !important; }
+    .hero-title { font-size: 3.2rem !important; }
     .hero-description { font-size: 0.95rem; margin-bottom: 25px; }
-    .booking-search { flex-direction: column; padding: 20px; gap: 15px; width: calc(100% - 30px); margin: 0 15px; }
-    .search-divider { display: none; }
-    .search-item { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
-    .search-item:last-of-type { border: none; }
-    .search-item:has(.guest-counter) { align-items: center; text-align: center; }
-    .guest-counter { margin: 0 auto; }
-    .search-btn { width: 100%; justify-content: center; }
+
     .rooms-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
     .gallery-item.large { grid-row: span 1; }
@@ -275,12 +269,12 @@ section { padding: var(--section-padding); }
 
 @media (max-width: 480px) {
     .float-label { display: none; }
-    .hero-title { font-size: 2rem !important; }
+    .hero-title { font-size: 2.8rem !important; }
     .services-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 380px) {
-    .hero-title { font-size: 1.8rem !important; }
+    .hero-title { font-size: 2.4rem !important; }
 }
 
 /* Global Inversion for Phone Icons */
