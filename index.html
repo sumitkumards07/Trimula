@@ -47,21 +47,8 @@
                 <a href="tel:+918226942657" class="btn btn-primary hero-call-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
             </div>
 
-            <!-- Booking Search Bar -->
-            <div class="booking-search glass">
 
-                <div class="search-item">
-                    <label><i class="fas fa-user-friends"></i> Guests</label>
-                    <div class="guest-counter">
-                        <button type="button" class="counter-btn minus">-</button>
-                        <input type="number" value="1" min="1" max="10" readonly id="guest-count">
-                        <button type="button" class="counter-btn plus">+</button>
-                    </div>
-                </div>
-                <button class="btn btn-primary search-btn">
-                    <i class="fas fa-search"></i> Check Availability
-                </button>
-            </div>
+
         </div>
     </section>
 
@@ -307,30 +294,13 @@
                 navLinks.classList.toggle('active');
             });
 
-            // Guest Counter Logic
-            const minusBtn = document.querySelector('.minus');
-            const plusBtn = document.querySelector('.plus');
-            const guestInput = document.getElementById('guest-count');
 
-            minusBtn.addEventListener('click', () => {
-                let value = parseInt(guestInput.value);
-                if (value > 1) {
-                    guestInput.value = value - 1;
-                }
-            });
-
-            plusBtn.addEventListener('click', () => {
-                let value = parseInt(guestInput.value);
-                if (value < 10) {
-                    guestInput.value = value + 1;
-                }
-            });
 
             // Modal & WhatsApp Logic
             const modal = document.getElementById('booking-modal');
             const closeModal = document.querySelector('.close-modal');
             const enquiryForm = document.getElementById('enquiry-form');
-            const bookButtons = document.querySelectorAll('.btn-outline, .search-btn');
+            const bookButtons = document.querySelectorAll('.btn-outline');
 
             bookButtons.forEach(btn => {
                 btn.addEventListener('click', (e) => {
@@ -338,7 +308,6 @@
                     
                     // Pre-fill from search bar if available
 
-                    document.getElementById('modal-guests').value = document.getElementById('guest-count').value;
 
                     // Get room type from card if applicable
                     const card = btn.closest('.room-card');
